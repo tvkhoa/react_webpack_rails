@@ -6,7 +6,7 @@ module ReactWebpackRails
       private
 
       def load_json(file)
-        JSON.load(Rails.root.join(file))
+        JSON.load(File.read(Rails.root.join(file)))
       end
 
       def merge_into_package(file, options = {})
