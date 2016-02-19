@@ -109,7 +109,7 @@ RWR.renderComponent('customComponentName', {user_id: 1}, element);
 
 ```ruby
 def action_name
-  render react_component 'customComponentName', props: { user_id: 1 }
+  render react_component: 'customComponentName', props: { user_id: 1 }
 end
 ```
 
