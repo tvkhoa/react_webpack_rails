@@ -1,3 +1,8 @@
+## 0.2.1
+* Fix Readme typo
+* Fix json loader in generator
+* Fix node module version in core package.json
+
 ## 0.2.0
 * Added server-side execution of js
   * Updated package.json generator,
