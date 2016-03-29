@@ -10,8 +10,14 @@ class IntegrationsManager {
   }
 
   get(name) {
-    // handle missing one here;
-    return this.integrations[name];
+    const integration = this.integrations[name];
+    if (integration === undefined) {
+      throw new Error(
+        `Missing '${name}' integration, register appropriate integration in react/index.js`
+      );
+    }
+
+    return integration;
   }
 
   register(name, integration) {

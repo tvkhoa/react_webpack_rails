@@ -23,8 +23,12 @@ describe('IntegrationsManager', function () {
       );
     });
 
-    it('returns undefined if name is invalid', function () {
-      expect(subject.get('invalidName')).toBe(undefined);
+    it('throws an error if name is invalid', function () {
+      const errorMsg = (
+        "Missing 'invalidName' integration, register appropriate integration in react/index.js"
+      );
+
+      expect(() => subject.get('invalidName')).toThrow(errorMsg);
     });
   });
 

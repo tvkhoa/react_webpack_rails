@@ -1,3 +1,7 @@
+## 0.3.1
+* show depreciation warning only when integrations/react-router is used
+* throw an error when integration is missing
+
 ## 0.3.0
 * move integration with react-router to external plugin: https://github.com/netguru/rwr-react_router
 * add redux integration by external plugin: https://github.com/netguru/rwr-redux
