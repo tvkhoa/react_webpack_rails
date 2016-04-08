@@ -28,11 +28,13 @@
   },
   "homepage": "https://github.com/netguru/react_webpack_rails#readme",
   "peerDependencies": {
-    "react": "^0.14.0",
-    "react-dom": "^0.14.0"
+    "react": "^15.0.0",
+    "react-dom": "^15.0.0"
   },
   "dependencies": {
-    "babel-polyfill": "^6.3.0"
+    "babel-polyfill": "^6.3.0",
+    "react": "^15.0.1",
+    "react-dom": "^15.0.1"
   },
   "devDependencies": {
     "babel-cli": "^6.4.0",
