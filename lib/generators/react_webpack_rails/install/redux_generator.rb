@@ -35,6 +35,16 @@ module ReactWebpackRails
           JS
         end
       end
+
+      def add_rwr_redux
+        inject_into_file 'Gemfile', after: /\z/ do
+          <<-'RB'.strip_heredoc
+            gem 'rwr-redux'
+          RB
+        end
+
+        run 'bundle install'
+      end
     end
   end
 end
