@@ -73,6 +73,14 @@ module ReactWebpackRails
       remove_file('tmp/package.json')
     end
 
+    def install_gems
+      run 'bundle install'
+    end
+
+    def install_packages
+      run 'npm install'
+    end
+
     private
 
     def deprecation_warning
