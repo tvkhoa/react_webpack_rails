@@ -74,6 +74,7 @@ module ReactWebpackRails
     end
 
     def install_gems
+      return unless options.redux
       run 'bundle install'
     end
 
