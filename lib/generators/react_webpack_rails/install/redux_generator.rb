@@ -7,6 +7,8 @@ module ReactWebpackRails
       desc 'Add redux setup'
       source_root File.expand_path('../../templates', __FILE__)
 
+      REACT_INDEX_FILE = 'app/react/index.js'
+
       class_option :tmp_package,
                    type: :boolean,
                    default: false,
@@ -18,7 +20,7 @@ module ReactWebpackRails
       end
 
       def add_import
-        inject_into_file 'app/react/index.js', after: "import RWR from 'react-webpack-rails';\n" do
+        inject_into_file REACT_INDEX_FILE, after: "import RWR from 'react-webpack-rails';\n" do
           <<-'JS'.strip_heredoc
             import RWRRedux from 'rwr-redux';
 
@@ -26,8 +28,14 @@ module ReactWebpackRails
         end
       end
 
+      def gsub_rwr_import
+        old_line = "import RWR from 'react-webpack-rails';"
+        new_line = "import RWR, { integrationsManager } from 'react-webpack-rails';"
+        gsub_file REACT_INDEX_FILE, old_line, new_line
+      end
+
       def add_integration_managers
-        inject_into_file 'app/react/index.js', after: "RWR.run();\n" do
+        inject_into_file REACT_INDEX_FILE, after: "RWR.run();\n" do
           <<-'JS'.strip_heredoc
 
             integrationsManager.register('redux-store', RWRRedux.storeIntegrationWrapper);
@@ -42,8 +50,6 @@ module ReactWebpackRails
             gem 'rwr-redux'
           RB
         end
-
-        run 'bundle install'
       end
     end
   end
