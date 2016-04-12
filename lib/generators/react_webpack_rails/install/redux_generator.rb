@@ -37,7 +37,7 @@ module ReactWebpackRails
       end
 
       def add_rwr_redux
-        inject_into_file 'Gemfile', after: /\z/ do
+        append_file 'Gemfile' do
           <<-'RB'.strip_heredoc
             gem 'rwr-redux'
           RB
