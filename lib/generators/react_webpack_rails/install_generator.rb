@@ -23,6 +23,10 @@ module ReactWebpackRails
                  type: :boolean,
                  default: false,
                  desc: 'Run react_router generator'
+    class_option :redux,
+                 type: :boolean,
+                 default: false,
+                 desc: 'Run redux generator'
 
     def generate_core
       generate 'react_webpack_rails:install:core --tmp-package'
@@ -54,6 +58,11 @@ module ReactWebpackRails
       return unless options.react_router
       deprecation_warning
       generate 'react_webpack_rails:install:react_router --tmp_package'
+    end
+
+    def generate_redux
+      return unless options.redux
+      generate 'react_webpack_rails:install:redux'
     end
 
     def copy_package
