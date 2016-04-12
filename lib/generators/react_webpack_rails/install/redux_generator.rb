@@ -17,11 +17,16 @@ module ReactWebpackRails
         merge_into_package 'packages/redux.json', merge_options
       end
 
-      def add_integration_managers
+      def add_import
         inject_into_file 'app/react/index.js', after: "import RWR from 'react-webpack-rails';\n" do
-          "import RWRRedux from 'rwr-redux';\n"
-        end
+          <<-'JS'.strip_heredoc
+            import RWRRedux from 'rwr-redux';
 
+          JS
+        end
+      end
+
+      def add_integration_managers
         inject_into_file 'app/react/index.js', after: "RWR.run();\n" do
           <<-'JS'.strip_heredoc
 

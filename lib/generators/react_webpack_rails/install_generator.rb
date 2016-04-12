@@ -62,7 +62,7 @@ module ReactWebpackRails
 
     def generate_redux
       return unless options.redux
-      generate 'react_webpack_rails:install:redux'
+      generate 'react_webpack_rails:install:redux --tmp_package'
     end
 
     def copy_package
