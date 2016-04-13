@@ -26,9 +26,30 @@ module ReactWebpackRails
       end
     end
 
+    def react_element_from_storage(element, &block)
+      react_element(element.integration,
+                    { name: element.name, props: element.translated_props },
+                    element.options,
+                    &block)
+    end
+
     def react_router(name)
       deprecation_warning
       react_element('react-router', name: name)
+    end
+
+    def react_storage_element(element)
+      content_tag(:div, '', id: element.dom_element)
+    end
+
+    def react_storage(storage = @rwr_storage)
+      return if storage.nil? || storage.elements.empty?
+      script = '(function() {'
+      storage.elements.each do |element|
+        script << element.render_javascript
+      end
+      script << '})();'
+      content_tag(:script, script.html_safe)
     end
 
     private
