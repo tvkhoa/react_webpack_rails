@@ -36,19 +36,7 @@ Then run installation:
 
     $ rails g react_webpack_rails:install
 
-*read more about [install  generator](https://github.com/netguru/react_webpack_rails/blob/master/docs/install_generator.md) here*
-
-
-Establish the node packages (may take a few moments)
-
-    $ npm install    # you may see warnings to consider updating the provided package.json file with license and repository
-
-And require integration and bundle files in `application.js`
-
-```js
-//= require react_integration
-//= require react_bundle
-```
+*read more about [`install  generator`](https://github.com/netguru/react_webpack_rails/blob/master/docs/install_generator.md)*
 
 ### Babel
 

@@ -23,6 +23,10 @@ module ReactWebpackRails
                  type: :boolean,
                  default: false,
                  desc: 'Run react_router generator'
+    class_option :redux,
+                 type: :boolean,
+                 default: false,
+                 desc: 'Run redux generator'
 
     def generate_core
       generate 'react_webpack_rails:install:core --tmp-package'
@@ -56,12 +60,26 @@ module ReactWebpackRails
       generate 'react_webpack_rails:install:react_router --tmp_package'
     end
 
+    def generate_redux
+      return unless options.redux
+      generate 'react_webpack_rails:install:redux --tmp_package'
+    end
+
     def copy_package
       create_file 'package.json', File.read(Rails.root.join('tmp/package.json'))
     end
 
     def cleanup
       remove_file('tmp/package.json')
+    end
+
+    def install_gems
+      return unless options.redux
+      run 'bundle install'
+    end
+
+    def install_packages
+      run 'npm install'
     end
 
     private
