@@ -25,6 +25,15 @@ module ReactWebpackRails
         copy_file 'partial/_react_hot_assets.html.erb', 'app/views/layouts/_react_hot_assets.html.erb'
         settings = template_language_settings("render 'layouts/react_hot_assets'")
 
+        missing_layout_info = <<-NO_MANIFEST.strip_heredoc
+          Application Layout not found.
+
+          Application Layout (normally app/views/layouts/appliaction.html.erb) could not be found.
+          Please add in you main layout: "render 'layouts/react_hot_assets'"
+        NO_MANIFEST
+
+        return say_status(:not_found, missing_layout_info, :red) if settings == :no_application_layout
+
         inject_into_file settings[:layout_file], settings[:parsed_command], after: "#{settings[:body_tag]}\n"
       end
 
@@ -32,6 +41,7 @@ module ReactWebpackRails
 
       def template_language_settings(command)
         layout_file = Dir.glob('app/views/layouts/application.*').first
+        return :no_application_layout if layout_file.nil?
 
         case File.extname(layout_file)
         when '.slim'
