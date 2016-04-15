@@ -14,8 +14,9 @@
     "babel-preset-stage-1": "^6.3.13",
     "extract-text-webpack-plugin": "^0.8.2",
     "node-sass": "^3.3.3",
-    "react": "^0.14.0",
-    "react-dom": "^0.14.0",
+    "react": "^15.0.1",
+    "react-addons-test-utils": "^15.0.1",
+    "react-dom": "^15.0.1",
     "react-webpack-rails": "^0.3.0",
     "sass-loader": "^3.0.0",
     "webpack": "^1.12.1"
