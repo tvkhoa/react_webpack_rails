@@ -18,7 +18,7 @@ describe ReactWebpackRails::Services::CamelizeKeys do
         end
 
         it 'camelizes nested keys' do
-          expect(described_class.call(props).to eq(camelized_props))
+          expect(described_class.call(props)).to eq(camelized_props)
         end
       end
     end
