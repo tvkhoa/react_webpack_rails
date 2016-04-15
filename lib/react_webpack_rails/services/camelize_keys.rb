@@ -9,8 +9,8 @@ module ReactWebpackRails
         end
       end
 
-      def self.call(props)
-        new.call(props)
+      def self.call(data)
+        new.call(data)
       end
 
       private
