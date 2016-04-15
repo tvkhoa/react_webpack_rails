@@ -5,9 +5,22 @@ require 'active_support/core_ext/string'
 describe ReactWebpackRails::Services::CamelizeKeys do
   describe '.call' do
     context 'when props object is an array' do
-      let(:props) { ['some', 'props'] }
+      let(:props) { ['some_props', 'props_some'] }
 
       it { expect(described_class.call(props)).to eq(props) }
+
+      context 'when array contains hash' do
+        let(:props) do
+          [{ nested_hash: %w(first_value second_value) }, 'some_string']
+        end
+        let(:camelized_props) do
+          [{ 'nestedHash' => %w(first_value second_value) }, 'some_string']
+        end
+
+        it 'camelizes nested keys' do
+          expect(described_class.call(props)).to eq(camelized_props)
+        end
+      end
     end
 
     context 'when props object is a hash' do

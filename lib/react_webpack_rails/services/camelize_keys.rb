@@ -1,11 +1,24 @@
 module ReactWebpackRails
   module Services
     class CamelizeKeys
-      def self.call(props)
-        return props unless props.is_a?(Hash)
-        props.inject({}) do |h, (k, v)|
-          h[k.to_s.camelize(:lower)] = v.is_a?(Hash) ? self.call(v) : v
-          h
+      def call(data)
+        case data.class.name
+        when 'Array' then data.map { |element| call(element) }
+        when 'Hash' then camelize_hash(data)
+        else data
+        end
+      end
+
+      def self.call(data)
+        new.call(data)
+      end
+
+      private
+
+      def camelize_hash(data)
+        data.inject({}) do |hash, (key, value)|
+          hash[key.to_s.camelize(:lower)] = call(value)
+          hash
         end
       end
     end
