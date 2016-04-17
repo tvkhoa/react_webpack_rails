@@ -1,6 +1,10 @@
-## Unreleased
+## 0.4.0
+* Use React 15.x
+* Added Redux Generator
+* Add css/scss hot reload (css modules support)
+* Fix CamelizeKeys service - accept arrays
 
-#### migration 0.3.1 -> Unreleased
+#### migration 0.3.1 -> 0.4.0
 1. Install `style-loader` & `css-loader`:
   ```
   $ npm install --save style-loader css-loader
