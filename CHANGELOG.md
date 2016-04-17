@@ -1,8 +1,12 @@
 ## Unreleased
 
 #### migration 0.3.1 -> Unreleased
-1. pdate webpack configuration:
-  1. In your webpack.config.js in `loaders` section replace:
+1. Install `style-loader` & `css-loader`:
+  ```
+  $ npm install --save style-loader css-loader
+  ```
+2. update webpack configuration:
+  1. In your `webpack.config.js` in `loaders` section replace:
   ```js
     {
       key: 'scss',
@@ -23,7 +27,7 @@
       loader: ExtractTextPlugin.extract('css!sass')
     }
   ```
-  2. in your webpack/hot-dev-config.js add:
+  2. in your `webpack/hot-dev-config.js` add:
   ```js
     var scssLoader = config.module.loaders.filter(function(loader) { return loader.key == 'style' })[0]
     scssLoader.loader = 'style!css!sass!';
