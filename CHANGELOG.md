@@ -1,3 +1,34 @@
+## Unreleased
+
+#### migration 0.3.1 -> Unreleased
+1. pdate webpack configuration:
+  1. In your webpack.config.js in `loaders` section replace:
+  ```js
+    {
+      key: 'scss',
+      test: /\.scss$/,
+      loader: ExtractTextPlugin.extract('css!sass')
+    },
+    {
+      key: 'css',
+      test: /\.css$/,
+      loader: ExtractTextPlugin.extract('css!sass')
+    }
+  ```
+  with:
+  ```js
+    {
+      key: 'style',
+      test: /\.s?css$/,
+      loader: ExtractTextPlugin.extract('css!sass')
+    }
+  ```
+  2. in your webpack/hot-dev-config.js add:
+  ```js
+    var scssLoader = config.module.loaders.filter(function(loader) { return loader.key == 'style' })[0]
+    scssLoader.loader = 'style!css!sass!';
+  ```
+
 ## 0.3.1
 * show depreciation warning only when integrations/react-router is used
 * throw an error when integration is missing
