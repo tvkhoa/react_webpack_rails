@@ -10,6 +10,12 @@ module.exports = function (config) {
       'webpack/tests.config.js': ['webpack', 'sourcemap']
     },
     reporters: ['dots'],
+    customLaunchers: {
+      Chrome_travis_ci: {
+        base: 'Chrome',
+        flags: ['--no-sandbox']
+      }
+    },
     webpack: {
       module: {
         loaders: [
@@ -29,4 +35,7 @@ module.exports = function (config) {
       noInfo: true
     }
   });
+
+  if (process.env.TRAVIS)
+    config.browsers = ['Chrome_travis_ci'];
 };
