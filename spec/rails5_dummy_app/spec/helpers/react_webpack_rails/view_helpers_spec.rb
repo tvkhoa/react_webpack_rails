@@ -122,13 +122,4 @@ RSpec.describe ReactWebpackRails::ViewHelpers, type: :helper do
       end
     end
   end
-
-  describe '#react_router' do
-    it { expect(helper).to respond_to(:react_router) }
-
-    it 'wraps #react_component with proper options' do
-      expect(helper).to receive(:react_element).with('react-router', name: 'TodoRouter').once
-      helper.react_router('TodoRouter')
-    end
-  end
 end
