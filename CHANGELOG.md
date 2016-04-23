@@ -1,3 +1,20 @@
+## 0.4.1
+* Update install generator - set NODE_ENV for production.
+
+#### migration 0.4.0 -> 0.4.1
+* replace `webpack/productino.config.js` with:
+
+  ```js
+  const Webpack = require('webpack');
+  const config = require('./../webpack.config');
+
+  config.plugins.push(
+    new Webpack.DefinePlugin({'process.env': {'NODE_ENV': '"production"'}})
+  );
+
+  module.exports = config;
+  ```
+
 ## 0.4.0
 * Use React 15.x
 * Added Redux Generator
