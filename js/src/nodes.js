@@ -1,6 +1,6 @@
 import IntegrationsManager from './integrations-manager';
 
-const ELEMENT_ATTR = 'data-react-element';
+const ELEMENT_ATTR = 'data-rwr-element';
 const PAYLOAD_ATTR = 'data-payload';
 const INTEGRATION_NAME_ATTR = 'data-integration-name';
 const OPTIONS_ATTR = 'data-options';
