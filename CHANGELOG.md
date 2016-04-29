@@ -2,7 +2,7 @@
 * Update install generator - set NODE_ENV for production.
 
 #### migration 0.4.0 -> 0.4.1
-* replace `webpack/productino.config.js` with:
+* replace `webpack/production.config.js` with:
 
   ```js
   const Webpack = require('webpack');
