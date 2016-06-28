@@ -18,14 +18,21 @@ var RWRhandlers = {
 
   handleTurbolinksEvents: function handleTurbolinksEvents() {
     var unmountEvent;
+    var mountEvent;
 
     if (Turbolinks.EVENTS) {
+      mountEvent = Turbolinks.EVENTS.CHANGE;
       unmountEvent = Turbolinks.EVENTS.BEFORE_UNLOAD;
-    } else {
+    } else if (typeof Turbolinks.controller !== "undefined") {
+      mountEvent = 'turbolinks:load';
+      unmountEvent = 'turbolinks:before-cache';
+    }
+    else {
+      mountEvent = 'page:change';
       unmountEvent = 'page:receive';
       Turbolinks.pagesCached(0);
     }
-    RWRhandlers._handleEvent('page:change', RWRhandlers._mountNodes);
+    RWRhandlers._handleEvent(mountEvent, RWRhandlers._mountNodes);
     RWRhandlers._handleEvent(unmountEvent, RWRhandlers._unmountNodes);
   },
 

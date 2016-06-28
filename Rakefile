@@ -3,7 +3,7 @@ require "rspec/core/rake_task"
 
 namespace :test do
   desc 'Run all tests'
-  task all: [:node, :gem, :rails3, :rails4] do
+  task all: [:node, :gem, :rails3, :rails4, :rails5] do
     puts 'Finished all tests, yay!'
   end
 
@@ -30,13 +30,21 @@ namespace :test do
       sh %Q(cd spec/rails4_dummy_app && npm run build && bundle exec rspec && npm test)
     end
   end
+
+
+  desc 'Run rspec for rails5 application'
+  task :rails5 do
+    Bundler.with_clean_env do
+      sh %Q(cd spec/rails5_dummy_app && npm run build && bundle exec rspec && npm test)
+    end
+  end
 end
 
 task default: 'test:all'
 
 namespace :setup do
   desc 'Prepare every environment'
-  task all: [:node, :gem, :rails3, :rails4] do
+  task all: [:node, :gem, :rails3, :rails4, :rails5] do
     puts 'Prepared all, yay!'
   end
 
@@ -58,5 +66,10 @@ namespace :setup do
   desc 'Prepare rails4 test app dependencies'
   task :rails4 do
     sh %Q(npm install && cd spec/rails4_dummy_app && npm install && bundle install)
+  end
+
+  desc 'Prepare rails5 test app dependencies'
+  task :rails5 do
+    sh %Q(npm install && cd spec/rails5_dummy_app && npm install && bundle install)
   end
 end
