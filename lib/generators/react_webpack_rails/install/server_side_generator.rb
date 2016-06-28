@@ -20,6 +20,7 @@ module ReactWebpackRails
       def forever
         copy_file 'forever/development.json', 'forever/development.json'
         copy_file 'forever/production.json', 'forever/production.json'
+        create_file 'app/react/.foreverignore'
       end
 
       def node_server
