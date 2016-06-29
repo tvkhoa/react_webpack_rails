@@ -1,6 +1,5 @@
 import expect from 'expect';
 import reactIntegration from '../src/integrations/react';
-import reactRouterIntegration from '../src/integrations/react-router';
 import subject from '../src/integrations-manager';
 
 describe('IntegrationsManager', function () {
@@ -9,10 +8,7 @@ describe('IntegrationsManager', function () {
       expect(subject.integrations['react-component']).toEqual(
         reactIntegration.integrationWrapper
       );
-      expect(subject.integrations['react-router']).toEqual(
-        reactRouterIntegration.integrationWrapper
-      );
-      expect(Object.keys(subject.integrations).length).toEqual(2);
+      expect(Object.keys(subject.integrations).length).toEqual(1);
     });
   });
 

@@ -50,7 +50,6 @@ And modify:
 * `--no-hot-reload` - skip hot_reload generator
 * `--no-server-side` - skip server_side  generator
 * `--no-karma-setup` - skip karma_setup generator
-* `--react-router` - run react_rotuer generator [DEPRECIATED since v0.3.0 - use [rwr-react_router](https://github.com/netguru/rwr-react_router) instead]
 * `--redux` - install and setup [`rwr-redux`](https://github.com/netguru/rwr-redux) gem
 
 *Detailed description of generators coming soon...*

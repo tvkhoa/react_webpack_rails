@@ -3,51 +3,6 @@ var __RWR_ENV__ = {
   config: <%=JSON(Rails.application.config.react.shared)%>
 };
 
-function deprecatedError(helperName) {
-  var lines = [
-    helperName + ' was removed.',
-    'use RWR.' + helperName + ' instead.',
-    'check react_webpack_rails changelog for details.'
-  ]
-  console.error(lines.join("\n"));
-}
-
-function registerComponent() {
-  deprecatedError('registerComponent');
-}
-
-function getComponent() {
-  deprecatedError('getComponent');
-}
-
-function createComponent() {
-  deprecatedError('createComponent');
-}
-
-function renderComponent() {
-  deprecatedError('renderComponent');
-}
-
-function unmountComponent() {
-  deprecatedError('unmountComponent');
-}
-
-function renderRouter() {
-  deprecatedError('renderRouter');
-}
-
-function registerRouter() {
-  deprecatedError('registerRouter');
-}
-
-function unmountRouter() {
-  deprecatedError('unmountRouter');
-}
-
-function getRouter() {
-  deprecatedError('getRouter');
-}
-
 var RWRhandlers = {
   _mountNodes: function _mountNodes() {
     RWR.mountNodes();
