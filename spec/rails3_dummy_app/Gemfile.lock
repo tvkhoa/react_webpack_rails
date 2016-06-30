@@ -36,6 +36,8 @@ GEM
     activesupport (3.2.22.1)
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
+    archive-zip (0.7.0)
+      io-like (~> 0.3.0)
     arel (3.0.3)
     builder (3.0.4)
     byebug (5.0.0)
@@ -48,6 +50,9 @@ GEM
       xpath (~> 2.0)
     childprocess (0.5.6)
       ffi (~> 1.0, >= 1.0.11)
+    chromedriver-helper (1.0.0)
+      archive-zip (~> 0.7.0)
+      nokogiri (~> 1.6)
     coderay (1.1.0)
     columnize (0.9.0)
     diff-lcs (1.2.5)
@@ -56,6 +61,7 @@ GEM
     ffi (1.9.10)
     hike (1.2.3)
     i18n (0.7.0)
+    io-like (0.3.0)
     journey (1.0.4)
     json (1.8.3)
     mail (2.5.4)
@@ -159,6 +165,7 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers
   capybara
+  chromedriver-helper
   pry-byebug
   pry-rails
   rails (= 3.2.22.1)
