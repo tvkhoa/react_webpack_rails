@@ -77,6 +77,7 @@ namespace :setup do
     sh %(
       npm install &&
       cd spec/rails3_dummy_app &&
+      rm -rf node_modules/react-webpack-rails &&
       npm install &&
       bundle install
     )
@@ -87,6 +88,7 @@ namespace :setup do
     sh %(
       npm install &&
       cd spec/rails4_dummy_app &&
+      rm -rf node_modules/react-webpack-rails &&
       npm install &&
       bundle install
     )
@@ -97,6 +99,7 @@ namespace :setup do
     sh %(
       npm install &&
       cd spec/rails5_dummy_app &&
+      rm -rf node_modules/react-webpack-rails &&
       npm install &&
       bundle install
     )
