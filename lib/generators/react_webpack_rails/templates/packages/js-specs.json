@@ -1,14 +1,14 @@
 {
   "devDependencies": {
-    "expect": "^1.12.2",
-    "karma": "^0.13.13",
-    "karma-chrome-launcher": "^0.2.1",
-    "karma-mocha": "^0.2.0",
-    "karma-sinon": "^1.0.4",
-    "karma-sourcemap-loader": "^0.3.6",
+    "expect": "^1.20.0",
+    "karma": "^1.1.0",
+    "karma-chrome-launcher": "^1.0.0",
+    "karma-mocha": "^1.1.0",
+    "karma-sinon": "^1.0.0",
+    "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^1.7.0",
-    "mocha": "^2.3.4",
-    "sinon": "^1.17.2"
+    "mocha": "^2.5.0",
+    "sinon": "^1.17.0"
   },
   "scripts": {
     "test": "karma start"

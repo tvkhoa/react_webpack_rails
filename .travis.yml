@@ -2,7 +2,18 @@ branches:
   except:
     - docs
 
+sudo: required
+dist: trusty
 language: ruby
+addons:
+  # From some tests it seems you can only have one firefox addon.
+  # Adding two results in the last one defined being the one installed.
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
+      - google-chrome-beta
 
 cache:
   bundler: true
@@ -28,6 +39,9 @@ matrix:
       env: TEST_SUITE=gem
     - rvm: 2.2.4
       env: TEST_SUITE=node
+
+before_install:
+  - sudo apt-get update -qq
 
 before_script:
   - npm install -g npm@^2.0

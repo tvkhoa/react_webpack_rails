@@ -19,10 +19,6 @@ module ReactWebpackRails
                  type: :boolean,
                  default: true,
                  desc: 'Run karma_setup generator'
-    class_option :react_router,
-                 type: :boolean,
-                 default: false,
-                 desc: 'Run react_router generator'
     class_option :redux,
                  type: :boolean,
                  default: false,
@@ -52,12 +48,6 @@ module ReactWebpackRails
       example_generator = 'react_webpack_rails:install:example'
       example_generator += ' --server-side' if options.server_side
       generate example_generator
-    end
-
-    def generate_react_router
-      return unless options.react_router
-      deprecation_warning
-      generate 'react_webpack_rails:install:react_router --tmp_package'
     end
 
     def generate_redux
