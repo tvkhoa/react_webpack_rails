@@ -56,12 +56,12 @@ describe('Nodes', function () {
         };
       });
 
-      it('uses "data-react-element" as default selector', function () {
+      it('uses "data-rwr-element" as default selector', function () {
         const documentSpy = spyOn(document, 'querySelectorAll');
         mountNodes();
 
         expect(documentSpy.calls.length).toEqual(1);
-        expect(documentSpy).toHaveBeenCalledWith('[data-react-element]');
+        expect(documentSpy).toHaveBeenCalledWith('[data-rwr-element]');
       });
 
       it('mounts nodes', function () {
@@ -99,12 +99,12 @@ describe('Nodes', function () {
         };
       });
 
-      it('uses "data-react-element" as default selector', function () {
+      it('uses "data-rwr-element" as default selector', function () {
         const documentSpy = spyOn(document, 'querySelectorAll');
         unmountNodes();
 
         expect(documentSpy.calls.length).toEqual(1);
-        expect(documentSpy).toHaveBeenCalledWith('[data-react-element]');
+        expect(documentSpy).toHaveBeenCalledWith('[data-rwr-element]');
       });
 
       it('unmounts nodes', function () {
