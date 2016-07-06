@@ -5,7 +5,7 @@
 This gem provides easy and convenient way to build modern JavaScript stack on top of Rails applications using [Webpack](http://webpack.github.io/) and [React](https://facebook.github.io/react/).
 
 ### Development branch!
-See [0.3-stable](https://github.com/netguru/react_webpack_rails/tree/0.3-stable) for latest release.
+See [0.4-stable](https://github.com/netguru/react_webpack_rails/tree/0.4-stable) for latest release.
 
 ## Features
 * [Install Generator](https://github.com/netguru/react_webpack_rails/blob/master/docs/install_generator.md) for quick [Webpack](http://webpack.github.io/) setup.
