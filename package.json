@@ -1,6 +1,6 @@
 {
   "name": "react-webpack-rails",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "description": "Js part of react_webpack_rails - webpack based React & Rails integration.",
   "main": "js/lib/index.js",
   "files": [
