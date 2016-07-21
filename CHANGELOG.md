@@ -1,3 +1,25 @@
+## 0.5.0
+* fixed forever setup - solving problems with running node server,
+* renamed `react_element` -> `rwr_element`,
+* dropped deprecated react_router integration,
+* npm dependencies bump,
+* support Rails 5:
+  * added Turbolinks 5 compatibility,
+  * added Rails 5 dummy app for testing.
+
+
+#### migration 0.4.1 -> 0.5.0
+in both: `forever/development.json` & `forever/production.json` replace
+```
+"sourceDir": "./app/react",
+```
+with:
+```
+"workingDir": "./",
+"sourceDir": "app/react",
+```
+
+
 ## 0.4.1
 * Update install generator - set NODE_ENV for production.
 
