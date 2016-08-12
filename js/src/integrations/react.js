@@ -17,6 +17,10 @@ class ReactIntegration {
     this.components[name] = component;
   }
 
+  registerComponents(components) {
+    this.components = Object.assign({}, this.components, components);
+  }
+
   getComponent(name) {
     return this.components[name];
   }

@@ -15,6 +15,18 @@ class HelloComponent extends React.Component {
   }
 }
 
+class FooComponent extends React.Component {
+  static propTypes() {
+    return {
+      username: PropTypes.string.isRequired,
+    };
+  }
+
+  render() {
+    return (<div>Foo! Bar!</div>);
+  }
+}
+
 describe('ReactIntegration', function () {
   afterEach(function () {
     subject.components = {};
@@ -30,6 +42,14 @@ describe('ReactIntegration', function () {
     it('adds component to the components storage', function () {
       subject.registerComponent('HelloWorld', HelloComponent);
       expect(subject.components.HelloWorld).toBe(HelloComponent);
+    });
+  });
+
+  describe('#registerComponents', function () {
+    it('adds multiple components', function () {
+      subject.registerComponents({ HelloComponent, FooComponent });
+      expect(subject.components.HelloComponent).toBe(HelloComponent);
+      expect(subject.components.FooComponent).toBe(FooComponent);
     });
   });
 
