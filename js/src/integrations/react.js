@@ -13,7 +13,13 @@ class ReactIntegration {
     this.renderComponentToString = this.renderComponentToString.bind(this);
   }
 
-  registerComponent(name, component) {
+  registerComponent(...args) {
+    if (typeof args[0] === 'object') {
+      const component = args[0];
+      this.components = Object.assign({}, this.components, component);
+    }
+
+    const [name, component] = args;
     this.components[name] = component;
   }
 
