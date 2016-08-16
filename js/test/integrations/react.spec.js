@@ -39,9 +39,14 @@ describe('ReactIntegration', function () {
   });
 
   describe('#registerComponent', function () {
-    it('adds component to the components storage', function () {
+    it('registers component using separate args', function () {
       subject.registerComponent('HelloWorld', HelloComponent);
       expect(subject.components.HelloWorld).toBe(HelloComponent);
+    });
+
+    it('registers component using Object', function () {
+      subject.registerComponent({ HelloComponent });
+      expect(subject.components.HelloComponent).toBe(HelloComponent);
     });
   });
 
