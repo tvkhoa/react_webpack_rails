@@ -19,6 +19,7 @@ See [0.4-stable](https://github.com/netguru/react_webpack_rails/tree/0.4-stable)
 * [rwr-alt](https://github.com/netguru/rwr-alt) plugin that makes it possible to populate and share Alt stores between react component located in different parts of rails views.
 * [rwr-redux](https://github.com/netguru/rwr-redux) allows to use redux state containers in a rails views.
 * [rwr-react_router](https://github.com/netguru/rwr-react_router) react-router integration.
+* [rwr-view_helpers](https://github.com/netguru/rwr-view_helpers) handy view helpers.
 
 ## Installation
 
