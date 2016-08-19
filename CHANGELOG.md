@@ -1,11 +1,34 @@
+## 0.6.0
+- new way of registering component
+	```jsx
+	import RWR from 'react-webpack-rails'
+	import FileInput from './components/FileInput';
+	
+	RWR.run();
+	RWR.registerComponent({ FileInput });
+	```
+- new option to reg
+	```jsx
+	import RWR from 'react-webpack-rails'
+	import FileInput from './components/FileInput';
+	import RangeInput from './components/RangeInput';
+	import NumberInput from './components/NumberInput';
+	
+	RWR.run();
+	RWR.registerComponents({ FileInput, RangeInput, NumberInput });
+	```
+- add rwr-view_helpers to generators
+- update node_server.js to modern one
+- bump npm packages versions
+
 ## 0.5.0
-* fixed forever setup - solving problems with running node server,
-* renamed `react_element` -> `rwr_element`,
-* dropped deprecated react_router integration,
-* npm dependencies bump,
-* support Rails 5:
-  * added Turbolinks 5 compatibility,
-  * added Rails 5 dummy app for testing.
+- fixed forever setup - solving problems with running node server,
+- renamed `react_element` -> `rwr_element`,
+- dropped deprecated react_router integration,
+- npm dependencies bump,
+- support Rails 5:
+	- added Turbolinks 5 compatibility,
+	- added Rails 5 dummy app for testing.
 
 
 #### migration 0.4.1 -> 0.5.0
