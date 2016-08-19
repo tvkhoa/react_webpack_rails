@@ -23,7 +23,7 @@ module ReactWebpackRails
                  type: :boolean,
                  default: false,
                  desc: 'Run redux generator'
-    class_option :view_helpers
+    class_option :view_helpers,
                  type: :boolean,
                  default: true,
                  desc: 'Run view helpers generator'
