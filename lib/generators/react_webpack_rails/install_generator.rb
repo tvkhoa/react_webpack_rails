@@ -23,24 +23,13 @@ module ReactWebpackRails
                  type: :boolean,
                  default: false,
                  desc: 'Run redux generator'
+    class_option :view_helpers
+                 type: :boolean,
+                 default: false,
+                 desc: 'Run view helpers generator'
 
     def generate_core
       generate 'react_webpack_rails:install:core --tmp-package'
-    end
-
-    def generate_hot_reload
-      return unless options.hot_reload
-      generate 'react_webpack_rails:install:hot_reload --tmp-package'
-    end
-
-    def generate_server_side
-      return unless options.server_side
-      generate 'react_webpack_rails:install:server_side --tmp-package'
-    end
-
-    def generate_karma_setup
-      return unless options.karma_setup
-      generate 'react_webpack_rails:install:karma_setup --tmp-package'
     end
 
     def generate_example
@@ -50,13 +39,33 @@ module ReactWebpackRails
       generate example_generator
     end
 
+    def generate_server_side
+      return unless options.server_side
+      generate 'react_webpack_rails:install:server_side --tmp-package'
+    end
+
+    def generate_hot_reload
+      return unless options.hot_reload
+      generate 'react_webpack_rails:install:hot_reload --tmp-package'
+    end
+
+    def generate_karma_setup
+      return unless options.karma_setup
+      generate 'react_webpack_rails:install:karma_setup --tmp-package'
+    end
+
     def generate_redux
       return unless options.redux
       generate 'react_webpack_rails:install:redux --tmp_package'
     end
 
+    def generate_view_helpers
+      return unless options.view_helpers
+      generate 'react_webpack_rails:install:redux --tmp_package'
+    end
+
     def copy_package
-      create_file 'package.json', File.read(Rails.root.join('tmp/package.json'))
+      create_file 'package.json', File.read(Rails.root.join('tmp', 'package.json'))
     end
 
     def cleanup
@@ -64,7 +73,6 @@ module ReactWebpackRails
     end
 
     def install_gems
-      return unless options.redux
       run 'bundle install'
     end
 
