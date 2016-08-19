@@ -25,7 +25,7 @@ module ReactWebpackRails
                  desc: 'Run redux generator'
     class_option :view_helpers
                  type: :boolean,
-                 default: false,
+                 default: true,
                  desc: 'Run view helpers generator'
 
     def generate_core
