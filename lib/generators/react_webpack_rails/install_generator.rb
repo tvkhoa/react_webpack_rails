@@ -61,7 +61,7 @@ module ReactWebpackRails
 
     def generate_view_helpers
       return unless options.view_helpers
-      generate 'react_webpack_rails:install:redux --tmp_package'
+      generate 'react_webpack_rails:install:view_helpers --tmp_package'
     end
 
     def copy_package
