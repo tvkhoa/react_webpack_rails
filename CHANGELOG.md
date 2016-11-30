@@ -11,11 +11,14 @@
   - eslint-plugin-react    ^5.2.0  →   ^6.7.0
   - karma-chrome-launcher  ^1.0.0  →   ^2.0.0
   - mocha                  ^2.5.0  →   ^3.2.0
-- if using server-side render, update node_server.js:
-  replace: ```js
+- if using server-side render, update node_server.js
+
+  replace:
+  ```js
   const dispatcher = require('httpdispatcher');
   ```
-  with: ```js
+  with:
+  ```js
   const httpdispatcher = require('httpdispatcher');
   const dispatcher = new httpdispatcher();
   ```
