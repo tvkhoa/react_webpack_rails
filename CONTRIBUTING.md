@@ -8,7 +8,7 @@ Found a bug in React Webpack Rails? Open an issue on [GitHub Issues](https://git
 
 Interested in contributing to React Webpack Rails? That's great, and thank you for your interest!
 
-After checking out the repo, run `bundle exec rake setup:all` to install every environment dependencies.
+After checking out the repo, switch to development branch & run `bundle exec rake setup:all` to install every environment dependencies.
 
 To get your contributions accepted, make sure:
 
