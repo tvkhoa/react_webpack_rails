@@ -1,6 +1,6 @@
 ## new_release
-- updated:
-  - httpdispatcher
+- updated packages
+- added NODE_ENV eq 'development' for webpack dev config.
 
 #### migration 0.6.0 -> new_release
 - update your packges using [ncu](https://github.com/tjunnone/npm-check-updates) or manually update in package.json:
@@ -21,6 +21,15 @@
   ```js
   const httpdispatcher = require('httpdispatcher');
   const dispatcher = new httpdispatcher();
+  ```
+
+- in `dev.config.js` add:
+  ```js
+  const Webpack = require('webpack');
+  [...]
+  config.plugins.push(
+    new Webpack.DefinePlugin({'process.env': {'NODE_ENV': '"development"'}})
+  );
   ```
 
 
