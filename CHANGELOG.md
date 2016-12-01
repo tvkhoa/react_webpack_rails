@@ -1,9 +1,35 @@
+## new_release
+- updated:
+  - httpdispatcher
+
+#### migration 0.6.0 -> new_release
+- update your packges using [ncu](https://github.com/tjunnone/npm-check-updates) or manually update in package.json:
+  - css-loader             ^0.23.0  →  ^0.26.0
+  - httpdispatcher         ^1.0.0  →   ^2.0.0
+  - babel-eslint           ^6.1.0  →   ^7.1.0
+  - eslint                 ^2.13.0  →  ^3.11.0
+  - eslint-plugin-react    ^5.2.0  →   ^6.7.0
+  - karma-chrome-launcher  ^1.0.0  →   ^2.0.0
+  - mocha                  ^2.5.0  →   ^3.2.0
+- if using server-side render, update node_server.js
+
+  replace:
+  ```js
+  const dispatcher = require('httpdispatcher');
+  ```
+  with:
+  ```js
+  const httpdispatcher = require('httpdispatcher');
+  const dispatcher = new httpdispatcher();
+  ```
+
+
 ## 0.6.0
 - new way of registering component
 	```jsx
 	import RWR from 'react-webpack-rails'
 	import FileInput from './components/FileInput';
-	
+
 	RWR.run();
 	RWR.registerComponent({ FileInput });
 	```
@@ -13,7 +39,7 @@
 	import FileInput from './components/FileInput';
 	import RangeInput from './components/RangeInput';
 	import NumberInput from './components/NumberInput';
-	
+
 	RWR.run();
 	RWR.registerComponents({ FileInput, RangeInput, NumberInput });
 	```
