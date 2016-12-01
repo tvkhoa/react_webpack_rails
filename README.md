@@ -10,7 +10,6 @@ This gem provides easy and convenient way to build modern JavaScript stack on to
 * ES6/7 support with [babeljs](https://babeljs.io/).
 * Node.js based [server-side JavaScript execution](https://github.com/netguru/react_webpack_rails/blob/master/docs/server_side_rendering.md).
 * [React](https://facebook.github.io/react/) integration with server prerender option.
-* [React-router](https://github.com/rackt/react-router) integration.
 
 ### Plugins:
 * [rwr-alt](https://github.com/netguru/rwr-alt) plugin that makes it possible to populate and share Alt stores between react component located in different parts of rails views.
