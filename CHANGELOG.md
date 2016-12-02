@@ -1,35 +1,56 @@
 ## new_release
 - updated packages
+- added ready to use eslint setup
 - added NODE_ENV eq 'development' for webpack dev config.
+- fixed server-side render
 
 #### migration 0.6.0 -> new_release
-- update your packges using [ncu](https://github.com/tjunnone/npm-check-updates) or manually update in package.json:
-  - css-loader             ^0.23.0  →  ^0.26.0
-  - httpdispatcher         ^1.0.0  →   ^2.0.0
-  - babel-eslint           ^6.1.0  →   ^7.1.0
-  - eslint                 ^2.13.0  →  ^3.11.0
-  - eslint-plugin-react    ^5.2.0  →   ^6.7.0
-  - karma-chrome-launcher  ^1.0.0  →   ^2.0.0
-  - mocha                  ^2.5.0  →   ^3.2.0
-- if using server-side render, update node_server.js
+- update your packges using [ncu](https://github.com/tjunnone/npm-check-updates) or manually in package.json.
+- setup eslint
+  - install eslit-config-airbnb and it's dependencies:
+
+    ```bash
+    (
+      export PKG=eslint-config-airbnb;
+      npm info "$PKG@latest" peerDependencies --json | command sed 's/[\{\},]//g ; s/: /@/g' | xargs npm install --save-dev "$PKG@latest"
+    )
+    ```
+  - add .eslintrc file in project root path:
+
+    ```json
+    {
+      "extends": "airbnb",
+      "env": {
+        "mocha": true
+      },
+      "rules": {
+        "import/no-extraneous-dependencies": [0]
+      }
+    }
+    ```
+- Set NODE_EVN in development:
+
+  in `dev.config.js` add:
+
+    ```js
+    const Webpack = require('webpack');
+    [...]
+    config.plugins.push(
+      new Webpack.DefinePlugin({'process.env': {'NODE_ENV': '"development"'}})
+    );
+    ```
+- If using server-side render, update node_server.js - required by new httpdispatcher version,
 
   replace:
+
   ```js
   const dispatcher = require('httpdispatcher');
   ```
   with:
+
   ```js
   const httpdispatcher = require('httpdispatcher');
   const dispatcher = new httpdispatcher();
-  ```
-
-- in `dev.config.js` add:
-  ```js
-  const Webpack = require('webpack');
-  [...]
-  config.plugins.push(
-    new Webpack.DefinePlugin({'process.env': {'NODE_ENV': '"development"'}})
-  );
   ```
 
 
