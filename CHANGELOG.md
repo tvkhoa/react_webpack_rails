@@ -1,10 +1,10 @@
-## new_release
+## 0.7.0
 - updated packages
 - added ready to use eslint setup
 - added NODE_ENV eq 'development' for webpack dev config.
 - fixed server-side render
 
-#### migration 0.6.0 -> new_release
+#### migration 0.6.0 -> 0.7.0
 - update your packges using [ncu](https://github.com/tjunnone/npm-check-updates) or manually in package.json.
 - setup eslint
   - install eslit-config-airbnb and it's dependencies:
