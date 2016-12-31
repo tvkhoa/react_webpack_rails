@@ -14,7 +14,7 @@ module ReactWebpackRails
     end
 
     def react_element(integration_name, payload = {}, html_options = {}, &block)
-      message = 'since v0.5.0: react_element is depricated. Use rwr_element instead'
+      message = 'since v0.5.0: react_element is deprecated. Use rwr_element instead'
       ActiveSupport::Deprecation.warn message
 
       rwr_element(integration_name, payload, html_options, &block)
