@@ -37,6 +37,17 @@ module ReactWebpackRails
         inject_into_file settings[:layout_file], settings[:parsed_command], after: "#{settings[:body_tag]}\n"
       end
 
+      def index
+        append_to_file 'app/react/index.js' do <<-'JS'.strip_heredoc
+
+          if (module.hot) {
+            module.hot.accept();
+            RWR.mountNodes();
+          }
+          JS
+        end
+      end
+
       private
 
       def template_language_settings(command)
