@@ -21,6 +21,7 @@ class RWR {
 
     this.mountNodes = nodes.mountNodes;
     this.unmountNodes = nodes.unmountNodes;
+    this.reloadNodes = nodes.reloadNodes;
   }
 
   run() {

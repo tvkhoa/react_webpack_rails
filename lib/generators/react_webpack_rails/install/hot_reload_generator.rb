@@ -42,7 +42,7 @@ module ReactWebpackRails
 
           if (module.hot) {
             module.hot.accept();
-            RWR.mountNodes();
+            RWR.reloadNodes();
           }
           JS
         end

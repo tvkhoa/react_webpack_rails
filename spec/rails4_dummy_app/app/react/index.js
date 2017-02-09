@@ -7,5 +7,5 @@ RWR.registerComponent('HelloWorld', HelloWorld);
 
 if (module.hot) {
   module.hot.accept();
-  RWR.mountNodes();
+  RWR.reloadNodes();
 }

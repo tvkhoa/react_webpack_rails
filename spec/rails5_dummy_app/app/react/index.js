@@ -9,5 +9,5 @@ RWR.registerComponent('Counter', Counter);
 
 if (module.hot) {
   module.hot.accept();
-  RWR.mountNodes();
+  RWR.reloadNodes();
 }
