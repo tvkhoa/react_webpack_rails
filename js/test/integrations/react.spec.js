@@ -94,6 +94,18 @@ describe('ReactIntegration', function () {
     });
   });
 
+  describe('#renderComponent', function () {
+    it('attaches integration data to node', function () {
+      const node = { nodeType: 1, nodeName: 'DIV', dataset: {} };
+      const props = { key: 1 };
+      const reactSpy = spyOn(ReactDOM, 'render');
+      subject.renderComponent('componentName', props, node);
+      expect(node.dataset.rwrElement).toEqual('true');
+      expect(node.dataset.integrationName).toEqual('react-component');
+      expect(node.dataset.payload).toEqual('{"name":"componentName","props":{"key":1}}');
+    });
+  });
+
   describe('#integrationWrapper', function () {
     const node = { nodeType: 1, nodeName: 'DIV' };
 
