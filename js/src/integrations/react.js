@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactDOMServer from 'react-dom/server';
+import { AppContainer } from 'react-hot-loader';
 
 class ReactIntegration {
   constructor() {
@@ -33,11 +34,13 @@ class ReactIntegration {
 
   createComponent(name, props) {
     const constructor = this.getComponent(name);
-    return React.createElement(constructor, props);
+    const element = React.createElement(constructor, props);
+    return React.createElement(AppContainer, null, element);
   }
 
   renderComponent(name, props, node) {
     const component = this.createComponent(name, props);
+    this._attachIntegrationData(node, name, props);
     ReactDOM.render(component, node);
   }
 
@@ -65,6 +68,15 @@ class ReactIntegration {
       }.bind(this),
     };
   }
+
+  _attachIntegrationData(node, name, props) {
+    const nativeNode = node.selector ? node[0] : node; // normalize jquery objects to native nodes
+    const dataset = nativeNode.dataset;
+    if (dataset.rwrElement) return;
+    dataset.rwrElement = 'true';
+    dataset.integrationName = 'react-component';
+    dataset.payload = JSON.stringify({ name, props });
+  };
 }
 
 export default new ReactIntegration;
