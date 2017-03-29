@@ -22,7 +22,7 @@ module ReactWebpackRails
       def add_rwr_view_helpers
         append_file 'Gemfile' do
           <<-'RB'.strip_heredoc
-            gem 'rwr-view_helpers', '~> 0.2.0'
+            gem 'rwr-view_helpers'
           RB
         end
       end
