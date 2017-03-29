@@ -1,6 +1,7 @@
 import expect, { spyOn } from 'expect';
 import React, { PropTypes } from 'react';
 import ReactDOM from 'react-dom';
+import { AppContainer } from 'react-hot-loader';
 import subject from '../../src/integrations/react';
 
 class HelloComponent extends React.Component {
@@ -70,10 +71,13 @@ describe('ReactIntegration', function () {
   });
 
   describe('#createComponent', function () {
-    it('creates component with given props', function () {
+    it('creates component with given props wrapped in AppContainer for hot-reloading', function () {
       subject.registerComponent('HelloWorld', HelloComponent);
-      const component = subject.createComponent('HelloWorld', { username: 'testUser' });
+      const wrapper = subject.createComponent('HelloWorld', { username: 'testUser' });
 
+      expect(wrapper.type).toBe(AppContainer);
+
+      const component = wrapper.props.children;
       expect(component.props).toEqual({ username: 'testUser' });
       expect(component.type).toBe(HelloComponent);
     });
@@ -87,6 +91,18 @@ describe('ReactIntegration', function () {
 
       expect(unmountSpy.calls.length).toEqual(1);
       expect(unmountSpy).toHaveBeenCalledWith({ nodeType: 1, nodeName: 'DIV' });
+    });
+  });
+
+  describe('#renderComponent', function () {
+    it('attaches integration data to node', function () {
+      const node = { nodeType: 1, nodeName: 'DIV', dataset: {} };
+      const props = { key: 1 };
+      const reactSpy = spyOn(ReactDOM, 'render');
+      subject.renderComponent('componentName', props, node);
+      expect(node.dataset.rwrElement).toEqual('true');
+      expect(node.dataset.integrationName).toEqual('react-component');
+      expect(node.dataset.payload).toEqual('{"name":"componentName","props":{"key":1}}');
     });
   });
 

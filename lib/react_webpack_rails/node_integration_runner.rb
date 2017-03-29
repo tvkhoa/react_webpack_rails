@@ -1,3 +1,5 @@
+require 'net/http'
+
 module ReactWebpackRails
   class NodeIntegrationRunner
     include NodeHelpers

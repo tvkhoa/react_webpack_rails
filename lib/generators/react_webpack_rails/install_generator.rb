@@ -73,7 +73,9 @@ module ReactWebpackRails
     end
 
     def install_gems
-      run 'bundle install'
+      Bundler.with_clean_env do
+        run 'bundle install'
+      end
     end
 
     def install_packages

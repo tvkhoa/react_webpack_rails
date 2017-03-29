@@ -7,7 +7,7 @@ feature 'client_side_hello_world page', js: true do
 
   it 'renders react component with attribute from Rails controller' do
     expect(page).to have_content('Rails 5 dummy app')
-    visit(react_component_renderer_test_path)
-    expect(page).to have_content('Hello World render component test')
+    visit(server_controller_component_path)
+    expect(page).to have_content('Hello World server controller')
   end
 end
