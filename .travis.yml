@@ -6,8 +6,6 @@ sudo: required
 dist: trusty
 language: ruby
 addons:
-  # From some tests it seems you can only have one firefox addon.
-  # Adding two results in the last one defined being the one installed.
   apt:
     sources:
       - google-chrome
@@ -44,8 +42,8 @@ before_install:
   - sudo apt-get update -qq
 
 before_script:
-  - npm install -g npm@^2.0
-  - npm install -g webpack@^1.12.1
+  - npm install -g npm@^4.4.4
+  - npm install -g webpack@^2.3.2
   - bundle exec rake setup:$TEST_SUITE
   - 'export CHROME_BIN=chromium-browser'
   - "export DISPLAY=:99.0" # Setup display for selenium driver
