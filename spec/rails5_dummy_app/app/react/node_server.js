@@ -8,7 +8,7 @@ const httpdispatcher = require('httpdispatcher');
 const dispatcher = new httpdispatcher();
 const { integrationsManager } = require('react-webpack-rails');
 
-const PORT = 8081;
+const PORT = parseInt(process.env.PORT || 8081);
 const ASSETS_MAPPING_PATH = 'tmp/cache/assets-mapping.json';
 
 global.__RWR_ENV__ = {};
