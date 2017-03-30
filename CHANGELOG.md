@@ -1,9 +1,65 @@
+## 0.7.0
+- updated packages
+- added ready to use eslint setup
+- added NODE_ENV eq 'development' for webpack dev config.
+- fixed server-side render
+
+#### migration 0.6.0 -> 0.7.0
+- update your packges using [ncu](https://github.com/tjunnone/npm-check-updates) or manually in package.json.
+- setup eslint
+  - install eslit-config-airbnb and it's dependencies:
+
+    ```bash
+    (
+      export PKG=eslint-config-airbnb;
+      npm info "$PKG@latest" peerDependencies --json | command sed 's/[\{\},]//g ; s/: /@/g' | xargs npm install --save-dev "$PKG@latest"
+    )
+    ```
+  - add .eslintrc file in project root path:
+
+    ```json
+    {
+      "extends": "airbnb",
+      "env": {
+        "mocha": true
+      },
+      "rules": {
+        "import/no-extraneous-dependencies": [0]
+      }
+    }
+    ```
+- Set NODE_EVN in development:
+
+  in `dev.config.js` add:
+
+    ```js
+    const Webpack = require('webpack');
+    [...]
+    config.plugins.push(
+      new Webpack.DefinePlugin({'process.env': {'NODE_ENV': '"development"'}})
+    );
+    ```
+- If using server-side render, update node_server.js - required by new httpdispatcher version,
+
+  replace:
+
+  ```js
+  const dispatcher = require('httpdispatcher');
+  ```
+  with:
+
+  ```js
+  const httpdispatcher = require('httpdispatcher');
+  const dispatcher = new httpdispatcher();
+  ```
+
+
 ## 0.6.0
 - new way of registering component
 	```jsx
 	import RWR from 'react-webpack-rails'
 	import FileInput from './components/FileInput';
-	
+
 	RWR.run();
 	RWR.registerComponent({ FileInput });
 	```
@@ -13,7 +69,7 @@
 	import FileInput from './components/FileInput';
 	import RangeInput from './components/RangeInput';
 	import NumberInput from './components/NumberInput';
-	
+
 	RWR.run();
 	RWR.registerComponents({ FileInput, RangeInput, NumberInput });
 	```

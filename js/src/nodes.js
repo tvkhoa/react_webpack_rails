@@ -34,18 +34,23 @@ function _unmountNode(node) {
   if (typeof(unmount) === 'function') { unmount(node, data.payload); }
 }
 
-export default {
-  mountNodes: function _mountNodes(searchSelector) {
-    const nodes = _findDOMNodes(searchSelector);
-    for (let i = 0; i < nodes.length; ++i) {
-      _mountNode(nodes[i]);
-    }
-  },
+function mountNodes(searchSelector) {
+  const nodes = _findDOMNodes(searchSelector);
+  for (let i = 0; i < nodes.length; ++i) {
+    _mountNode(nodes[i]);
+  }
+}
 
-  unmountNodes: function _unmountNodes(searchSelector) {
-    const nodes = _findDOMNodes(searchSelector);
-    for (let i = 0; i < nodes.length; ++i) {
-      _unmountNode(nodes[i]);
-    }
-  },
+function unmountNodes(searchSelector) {
+  const nodes = _findDOMNodes(searchSelector);
+  for (let i = 0; i < nodes.length; ++i) {
+    _unmountNode(nodes[i]);
+  }
+}
+
+export default {
+  mountNodes,
+  unmountNodes,
+  // Used after hot module replacement
+  reloadNodes: mountNodes,
 };

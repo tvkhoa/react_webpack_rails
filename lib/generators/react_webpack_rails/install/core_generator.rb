@@ -12,6 +12,7 @@ module ReactWebpackRails
 
       def base
         copy_file '.babelrc', '.babelrc'
+        copy_file '.eslintrc', '.eslintrc'
         create_file 'app/assets/javascripts/react_bundle.js'
         require_bundles_in_application_js
         template 'react/index.js', 'app/react/index.js'

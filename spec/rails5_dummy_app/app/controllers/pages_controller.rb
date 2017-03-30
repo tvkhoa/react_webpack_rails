@@ -1,12 +1,16 @@
 class PagesController < ApplicationController
-  def client_side_hello_world
-    @name = 'username'
-  end
-
-  def react_component_renderer_test
-    render react_component: 'HelloWorld', props: { name: 'render component test' }
-  end
-
   def home
+  end
+
+  def server_controller_component
+    render react_component: 'HelloWorld', props: { name: 'server controller' }
+  end
+
+  def server_view_component
+    @name = 'server view'
+  end
+
+  def client_component
+    @name = 'client'
   end
 end

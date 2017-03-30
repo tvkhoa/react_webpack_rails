@@ -2,7 +2,7 @@ import expect, { spyOn, createSpy } from 'expect';
 import Nodes from '../src/nodes';
 import IntegrationsManager from '../src/integrations-manager';
 
-const { mountNodes, unmountNodes } = Nodes;
+const { mountNodes, unmountNodes, reloadNodes } = Nodes;
 
 const node = {
   nodeType: 1,
@@ -116,6 +116,12 @@ describe('Nodes', function () {
         expect(documentSpy.calls.length).toEqual(1);
         expect(documentSpy).toHaveBeenCalledWith('[selectorsWithNodes]');
       });
+    });
+  });
+
+  describe('#reloadNodes', function () {
+    it('is equal to mountNodes', function () {
+      expect(reloadNodes).toEqual(mountNodes);
     });
   });
 });
