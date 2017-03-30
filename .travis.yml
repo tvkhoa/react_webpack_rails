@@ -23,19 +23,19 @@ cache:
 
 matrix:
   include:
-    - rvm: 2.2.4
+    - rvm: 2.2.7
       gemfile: spec/rails5_dummy_app/Gemfile
       env: TEST_SUITE=rails5
-    - rvm: 2.2.4
+    - rvm: 2.2.7
       gemfile: spec/rails4_dummy_app/Gemfile
       env: TEST_SUITE=rails4
-    - rvm: 2.2.4
+    - rvm: 2.2.7
       gemfile: spec/rails3_dummy_app/Gemfile
       env: TEST_SUITE=rails3
-    - rvm: 2.2.4
+    - rvm: 2.2.7
       gemfile: Gemfile
       env: TEST_SUITE=gem
-    - rvm: 2.2.4
+    - rvm: 2.2.7
       env: TEST_SUITE=node
 
 before_install:
