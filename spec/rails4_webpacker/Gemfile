@@ -9,15 +9,21 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'active_model_serializers'
+
 group :development, :test do
   gem 'byebug'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'chromedriver-helper'
+  gem 'pry'
 end
 
 group :development do
   gem 'web-console', '~> 2.0'
-  gem 'spring'
 end
 
 gem 'webpacker', github: 'rails/webpacker'
-gem 'pry'
 gem 'react_webpack_rails', path: '../../'
+gem 'rwr-view_helpers'
