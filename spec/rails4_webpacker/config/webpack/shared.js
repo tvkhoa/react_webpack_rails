@@ -23,7 +23,12 @@ module.exports = {
     }, {}
   ),
 
-  output: { filename: '[name].js', path: resolve(paths.output, paths.entry) },
+    output: {
+        filename: '[name].js',
+        // path: resolve(paths.output, paths.entry),
+        path: __dirname + '/app/assets/javascripts', // Save to Rails Asset Pipeline
+        publicPath: 'http://localhost:8081/'
+    },
 
   module: {
     rules: readdirSync(loadersDir).map(file => (

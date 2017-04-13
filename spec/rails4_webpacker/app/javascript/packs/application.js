@@ -7,9 +7,15 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
+import 'react-hot-loader/patch';
 
 import RWR from 'react-webpack-rails';
 RWR.run();
 
 import HelloWorld from './hello-world';
 RWR.registerComponent('HelloWorld', HelloWorld);
+
+if (module.hot) {
+  module.hot.accept();
+  RWR.reloadNodes();
+}
