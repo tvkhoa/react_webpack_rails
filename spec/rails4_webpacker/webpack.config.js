@@ -1,6 +1,11 @@
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var path = require('path');
 
+const reactPath = path.join(__dirname, 'app/react');
+const indexFile = path.join(reactPath, 'index.js');
+const outputPath = path.join(__dirname, 'app/assets/javascripts');
+
+
 module.exports = {
   entry: {
     main: ['./app/react/index.js']
@@ -26,7 +31,8 @@ module.exports = {
     alias: {
       'rwr-redux$': path.resolve(__dirname, '../../')
     },
-    extensions: ['.js', '.jsx', '.js.jsx']
+      extensions: ['.js', '.jsx', '.js.jsx'],
+      modulesDirectories: ['node_modules', reactPath]
   },
   plugins: [
     new ExtractTextPlugin({
