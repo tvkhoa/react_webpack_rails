@@ -75,8 +75,11 @@
     "node": ">= 0.10"
   },
   "jest": {
+    "roots": [
+        "app/javascript/packs"
+    ],
     "modulePaths": [
-      "app/react"
+        "app/javascript/packs"
     ]
   }
 }
