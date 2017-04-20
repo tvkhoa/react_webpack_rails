@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/rails/webpacker.git
+  revision: 740189b9f1f3a7ec35adb12df3361c28f52c4809
+  specs:
+    webpacker (1.1)
+      activesupport (>= 4.2)
+      multi_json (~> 1.2)
+      railties (>= 4.2)
+
 PATH
   remote: ../..
   specs:
@@ -167,6 +176,7 @@ DEPENDENCIES
   turbolinks
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
+  webpacker!
 
 BUNDLED WITH
    1.14.6
