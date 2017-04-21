@@ -11,10 +11,10 @@ Install generator run with default options will create following structure:
 
 ```
 ├── app
-│   ├── react
-│   │   ├── components
+│   ├── javascript
+│   │   ├── packs
 │   │   │   ├── hello-world.jsx (example)
-│   │   │   └── hello-world-test.jsx (example)
+│   │   │   └── hello-world.test.jsx (example)
 │   │   ├── index.js (core)
 │   │   └── node_server.js (server_side)
 │   ├── views
