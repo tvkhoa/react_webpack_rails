@@ -15,7 +15,6 @@ module ReactWebpackRails
         copy_file '.eslintrc', '.eslintrc'
         create_file 'app/assets/javascripts/react_bundle.js'
         require_bundles_in_application_js
-        template 'react/index.js', 'app/react/index.js'
       end
 
       def structure
@@ -37,12 +36,6 @@ module ReactWebpackRails
         else
           copy_file 'packages/core.json', 'package.json'
         end
-      end
-
-      def webpack
-        copy_file 'webpack.config.js', 'webpack.config.js'
-        copy_file 'webpack/dev.config.js', 'webpack/dev.config.js'
-        copy_file 'webpack/production.config.js', 'webpack/production.config.js'
       end
 
       private

@@ -26,10 +26,6 @@
     "style-loader": "^0.15.0",
     "webpack": "^2.3.0"
   },
-  "scripts": {
-    "start": "webpack -w --config webpack/dev.config.js",
-    "build": "webpack -p --config webpack/production.config.js"
-  },
   "license": "",
   "engines": {
     "node": ">= 0.10"
