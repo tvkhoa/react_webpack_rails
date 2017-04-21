@@ -79,7 +79,7 @@ module ReactWebpackRails
     end
 
     def install_packages
-      run 'npm install'
+      run 'yarn install'
     end
 
     private
