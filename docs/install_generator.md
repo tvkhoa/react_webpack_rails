@@ -18,8 +18,6 @@ Install generator run with default options will create following structure:
 │   │   ├── index.js (core)
 │   │   └── node_server.js (server_side)
 │   ├── views
-│   │   ├── layouts
-│   │   │   └── _react_hot_assets.html.erb (hot_relaod)
 │   │   └── react_examples
 │   │       └── component.html.erb (example)
 │   ├── assets
@@ -29,7 +27,6 @@ Install generator run with default options will create following structure:
 │       └── react_examples_controller.rb (example)
 ├── webpack
 │   ├── dev.config.js (core)
-│   ├── hot-dev.config.js (hot_reload)
 │   ├── production.config.js (core)
 │   └── tests.config.js (karma_setup)
 ├── forever
@@ -43,7 +40,6 @@ Install generator run with default options will create following structure:
 
 And modify:
 - `config/routes.rb` by adding a route for example component,
-- `app/views/layouts/application.html.erb` by adding hot_reload partial.
 
 ### Options
 * `--no-example` - skip example generator

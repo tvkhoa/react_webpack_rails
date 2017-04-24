@@ -4,6 +4,6 @@
     "webpack-dev-server": "^2.4.2"
   },
   "scripts": {
-    "start-hot-dev": "webpack-dev-server --hot --inline --config webpack/hot-dev.config.js"
+    "start-hot-dev": "./bin/webpack-dev-server --hot --inline"
   }
 }
