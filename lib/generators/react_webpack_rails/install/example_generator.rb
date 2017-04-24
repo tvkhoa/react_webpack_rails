@@ -25,7 +25,7 @@ module ReactWebpackRails
 
       def controller_and_view
         copy_file 'examples/react_examples_controller.rb', 'app/controllers/react_examples_controller.rb'
-        template = "examples/#{options.server_side ? 'ssr-' : ''}component_view.html.erb"
+        template = "examples/component_view.html.erb"
         copy_file template, 'app/views/react_examples/component.html.erb'
       end
 
