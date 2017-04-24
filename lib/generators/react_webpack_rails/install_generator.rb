@@ -7,10 +7,6 @@ module ReactWebpackRails
                  type: :boolean,
                  default: true,
                  desc: 'Run example generator.'
-    class_option :server_side,
-                 type: :boolean,
-                 default: true,
-                 desc: 'Run server_side generator'
     class_option :hot_reload,
                  type: :boolean,
                  default: true,
@@ -37,11 +33,6 @@ module ReactWebpackRails
       example_generator = 'react_webpack_rails:install:example'
       example_generator += ' --server-side' if options.server_side
       generate example_generator
-    end
-
-    def generate_server_side
-      return unless options.server_side
-      generate 'react_webpack_rails:install:server_side --tmp-package'
     end
 
     def generate_hot_reload
