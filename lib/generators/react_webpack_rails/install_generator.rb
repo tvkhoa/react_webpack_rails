@@ -15,10 +15,10 @@ module ReactWebpackRails
                  type: :boolean,
                  default: true,
                  desc: 'Run hot_reload generator'
-    class_option :karma_setup,
+    class_option :jest_setup,
                  type: :boolean,
                  default: true,
-                 desc: 'Run karma_setup generator'
+                 desc: 'Run jest_setup generator'
     class_option :redux,
                  type: :boolean,
                  default: false,
@@ -49,9 +49,9 @@ module ReactWebpackRails
       generate 'react_webpack_rails:install:hot_reload --tmp-package'
     end
 
-    def generate_karma_setup
-      return unless options.karma_setup
-      generate 'react_webpack_rails:install:karma_setup --tmp-package'
+    def generate_jest_setup
+      return unless options.jest_setup
+      generate 'react_webpack_rails:install:jest_setup --tmp-package'
     end
 
     def generate_redux
