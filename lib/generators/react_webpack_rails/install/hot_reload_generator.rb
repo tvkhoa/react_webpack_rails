@@ -30,17 +30,8 @@ module ReactWebpackRails
         end
       end
 
-      def modules_directories
-        gsub_file 'webpack.config.js', /extensions\:(.*)/ do
-        <<-JS
-          extensions: ['.js', '.jsx', '.js.jsx'],
-          modulesDirectories: ['node_modules', path.join(__dirname, 'app/react')]
-        JS
-        end
-      end
-
       def module_hot
-        append_to_file 'app/javascript/packs/applictions.js' do <<-'JS'.strip_heredoc
+        append_to_file 'app/javascript/packs/application.js' do <<-'JS'.strip_heredoc
 
           import 'react-hot-loader/patch';
 
