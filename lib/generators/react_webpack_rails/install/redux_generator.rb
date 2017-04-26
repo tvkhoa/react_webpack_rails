@@ -7,7 +7,7 @@ module ReactWebpackRails
       desc 'Add redux setup'
       source_root File.expand_path('../../templates', __FILE__)
 
-      REACT_INDEX_FILE = 'app/react/index.js'
+      REACT_INDEX_FILE = 'app/javascript/packs/application.js'
 
       class_option :tmp_package,
                    type: :boolean,
