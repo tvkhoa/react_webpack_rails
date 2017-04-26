@@ -5,7 +5,7 @@ class PackageMerge
   end
 
   def merge
-    %w(dependencies devDependencies scripts).each do |key|
+    %w(dependencies devDependencies scripts jest).each do |key|
       base_package[key] = merge_and_sort_level(key)
     end
     base_package
@@ -16,6 +16,7 @@ class PackageMerge
   attr_accessor :base_package, :extending
 
   def merge_and_sort_level(key)
+    base_package[key] = {} if base_package[key].nil?
     base_package[key].merge(extending.fetch(key, {})).sort.to_h
   end
 end
