@@ -13,10 +13,11 @@ Install generator run with default options will create following structure:
 ├── app
 │   ├── javascript
 │   │   ├── packs
-│   │   │   ├── hello-world.jsx (example)
-│   │   │   └── hello-world.test.jsx (example)
-│   │   ├── index.js (core)
-│   │   └── node_server.js (server_side)
+│   │   │   ├── components
+│   │   │   │   └── hello-world.jsx (example)
+│   │   │   ├── tests
+│   │   │   │   └── hello-world.test.jsx (example)
+    │   │   └── application.js (core)
 │   ├── views
 │   │   └── react_examples
 │   │       └── component.html.erb (example)
@@ -25,27 +26,21 @@ Install generator run with default options will create following structure:
 │   │       └──react_bundle.js (core)
 │   └── controllers
 │       └── react_examples_controller.rb (example)
-├── webpack
-│   ├── dev.config.js (core)
-│   ├── production.config.js (core)
-│   └── tests.config.js (karma_setup)
-├── forever
-│   ├── development.json (server_side)
-│   └── production.json (server_side)
 ├── .babelrc (core)
 ├── karma.conf.js (karma_setup)
-├── package.json (core)
-└── webpack.config.js (core)
+└── package.json (core)
 ```
 
 And modify:
 - `config/routes.rb` by adding a route for example component,
+- `app/javascript/packs/application.js` by adding import of RWR, example component and enabling hot-reload;
+- `app/views/layouts/application.html.erb` by adding `javascript_pack_tag`
+- `config/webpack/shared.js` by adding proper output in order to combine RWR and webpacker
 
 ### Options
 * `--no-example` - skip example generator
 * `--no-hot-reload` - skip hot_reload generator
-* `--no-server-side` - skip server_side  generator
-* `--no-karma-setup` - skip karma_setup generator
+* `--no-jest-setup` - skip jest_setup generator
 * `--redux` - install and setup [`rwr-redux`](https://github.com/netguru/rwr-redux) gem
 
 *Detailed description of generators coming soon...*
