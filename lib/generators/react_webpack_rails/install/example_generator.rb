@@ -10,14 +10,14 @@ module ReactWebpackRails
                    desc: 'Set server_side: true in example'
 
       def es6_example
-        copy_file 'javascript/packs/hello-world.test.jsx', 'app/javascript/packs/hello-world.test.jsx'
-        copy_file 'javascript/packs/hello-world.jsx', 'app/javascript/packs/hello-world.jsx'
+        copy_file 'javascript/packs/hello-world.test.jsx', 'app/javascript/packs/tests/hello-world.test.jsx'
+        copy_file 'javascript/packs/hello-world.jsx', 'app/javascript/packs/components/hello-world.jsx'
         append_to_file 'app/javascript/packs/application.js' do <<-'JS'.strip_heredoc
 
           import RWR from 'react-webpack-rails';
           RWR.run();
 
-          import HelloWorld from './hello-world';
+          import HelloWorld from './components/hello-world';
           RWR.registerComponent('HelloWorld', HelloWorld);
           JS
         end
@@ -36,7 +36,6 @@ module ReactWebpackRails
       def javascript_tag
         inject_into_file 'app/views/layouts/application.html.erb', before: '</head>' do <<-'HTML'.strip_heredoc
           <%= javascript_pack_tag 'application' %>
-          <%= javascript_pack_tag 'hello-world' %>
           HTML
         end
       end
