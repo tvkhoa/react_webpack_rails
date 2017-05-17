@@ -1,10 +1,10 @@
 {
   "devDependencies": {
-    "expect": "^1.20.0",
-    "mocha": "^3.2.0",
-    "sinon": "^2.1.0",
-    "babel-jest": "^19.0.0",
-    "jest": "^19.0.2"
+    "expect": "^1.20.2",
+    "mocha": "^3.4.1",
+    "sinon": "^2.2.0",
+    "babel-jest": "^20.0.3",
+    "jest": "^20.0.3"
   },
   "scripts": {
     "test": "jest"
