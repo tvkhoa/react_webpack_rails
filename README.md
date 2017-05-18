@@ -19,6 +19,14 @@ This gem provides easy and convenient way to build modern JavaScript stack on to
 * [rwr-react_router](https://github.com/netguru/rwr-react_router) react-router integration.
 * [rwr-view_helpers](https://github.com/netguru/rwr-view_helpers) handy view helpers.
 
+## Prerequisites
+
+* Ruby 2.2+
+* Rails 4.2+
+* Node.js 6.4.0+
+* Yarn 0.20.1+
+* Webpacker 1.2
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -48,7 +56,15 @@ In order to make hot reload working, you'll need to opt out of Babel transpiling
 
 #### Register component in application.js
 
-From version `1.0` the gem is built upon `webpacker` and entry file for webpack 2.x is `app/javascript/packs/application.js`. In order to register component you need to add in the entry file:
+From version `1.0` the gem is built upon `webpacker` and the entry file for webpack 2.x is placed and called `app/javascript/packs/application.js`. 
+
+#### Use it in layout file `application.html.erb`
+
+```erb
+<%= javascript_pack_tag 'application' %>
+```
+
+#### Use it in entry point file, i.e. `application.js`
 
 ```js
 import Component from './components/some-component';

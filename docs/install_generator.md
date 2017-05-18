@@ -1,7 +1,7 @@
 Install Generator
 =======
 
-`Install` generator is build from 6 independent generators responsible for different parts of installation process. All steps except core generator can be skipped by passing one of possible [options]().
+`Install` generator is build from 5 independent generators responsible for different parts of installation process. All steps except core generator can be skipped by passing one of possible [options](#options).
 
 ```bash
 $ rails generate react_webpack_rails:install

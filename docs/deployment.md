@@ -17,9 +17,8 @@ into `app/assets/javascript` before Heroku's `assets:precompile` step when it bu
 
 ```json
 "scripts": {
-  "test": "karma start",
-  "start": "webpack -w --config webpack/dev.config.js",
-  "build": "webpack -p --config webpack/production.config.js",
+  "start-hot-dev": "./bin/webpack-dev-server --hot --inline"
+  "test": "jest"
   "postinstall": "webpack -p --config webpack/production.config.js"
 },
 ```

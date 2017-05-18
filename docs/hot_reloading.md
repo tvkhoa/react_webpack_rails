@@ -21,21 +21,12 @@ Detailed steps are outlined below:
 "react-hot-loader": "^3.0.0-beta.6"
 ```
 
-2. Replace react-hot with `react-hot-loader/webpack` in `webpack/hot-dev.config.js` file
+2. Add following code at the bottom of your webpack entry file (i.e. `app/javascript/packs/application.js`) to enable hot-reloading:
 
 ```javascript
-jsxLoader.loaders.unshift('react-hot-loader/webpack');
-```
 
-3. Add `react-hot-loader/patch` in `webpack/hot-dev.config.js` file
+import 'react-hot-loader/patch';
 
-```javascript
-config.entry.main.unshift('react-hot-loader/patch')
-```
-
-4. Add following code at the bottom of your `app/react/index.js` file to enable hot-reloading:
-
-```javascript
 if (module.hot) {
   module.hot.accept();
   RWR.reloadNodes();
