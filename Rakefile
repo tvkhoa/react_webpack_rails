@@ -3,7 +3,7 @@ require 'rspec/core/rake_task'
 
 namespace :test do
   desc 'Run all tests'
-  task all: [:node, :gem, :rails3, :rails4, :rails5] do
+  task all: [:node, :gem, :rails4, :rails5] do
     puts 'Finished all tests, yay!'
   end
 
@@ -15,18 +15,6 @@ namespace :test do
   desc 'Run gem tests'
   task :gem do
     sh %(bundle exec rspec spec/react_webpack_rails_spec.rb spec/react_webpack_rails)
-  end
-
-  desc 'Run rspec for rails3 application'
-  task :rails3 do
-    Bundler.with_clean_env do
-      sh %(
-        cd spec/rails3_dummy_app &&
-        npm run build &&
-        bundle exec rspec &&
-        npm test
-      )
-    end
   end
 
   desc 'Run rspec for rails4 application'
@@ -58,13 +46,13 @@ task default: 'test:all'
 
 namespace :setup do
   desc 'Prepare every environment'
-  task all: [:node, :gem, :rails3, :rails4, :rails5] do
+  task all: [:node, :gem, :rails4, :rails5] do
     puts 'Prepared all, yay!'
   end
 
   desc 'Prepare node module dependencies'
   task :node do
-    sh %(npm install)
+    sh %(yarn install)
   end
 
   desc 'Prepare gem dependencies'
@@ -72,24 +60,13 @@ namespace :setup do
     sh %(bundle install)
   end
 
-  desc 'Prepare rails3 test app dependencies'
-  task :rails3 do
-    sh %(
-      npm install &&
-      cd spec/rails3_dummy_app &&
-      rm -rf node_modules/react-webpack-rails &&
-      npm install &&
-      bundle install
-    )
-  end
-
   desc 'Prepare rails4 test app dependencies'
   task :rails4 do
     sh %(
-      npm install &&
+      yarn install &&
       cd spec/rails4_dummy_app &&
       rm -rf node_modules/react-webpack-rails &&
-      npm install &&
+      yarn install &&
       bundle install
     )
   end
@@ -97,10 +74,10 @@ namespace :setup do
   desc 'Prepare rails5 test app dependencies'
   task :rails5 do
     sh %(
-      npm install &&
+      yarn install &&
       cd spec/rails5_dummy_app &&
       rm -rf node_modules/react-webpack-rails &&
-      npm install &&
+      yarn install &&
       bundle install
     )
   end
