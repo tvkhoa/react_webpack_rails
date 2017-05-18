@@ -1,3 +1,5 @@
+## 1.0.0-alpha1
+
 ## 0.7.0
 - updated packages
 - added ready to use eslint setup
