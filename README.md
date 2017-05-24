@@ -1,5 +1,7 @@
 # ReactWebpackRails
 [![Travis CI](https://travis-ci.org/netguru/react_webpack_rails.svg?branch=master)](https://travis-ci.org/netguru/react_webpack_rails)
+[![Gem Version](https://badge.fury.io/rb/react_webpack_rails.svg)](https://badge.fury.io/rb/react_webpack_rails)
+[![npm version](https://badge.fury.io/js/react-webpack-rails.svg)](https://badge.fury.io/js/react-webpack-rails)
 
 #### Rails - Webpack setup with React integration.
 This gem provides easy and convenient way to build modern JavaScript stack on top of Rails applications using [Webpack](http://webpack.github.io/), [Webpacker](https://github.com/rails/webpacker), [React](https://facebook.github.io/react/), [Jest](https://facebook.github.io/jest/).
