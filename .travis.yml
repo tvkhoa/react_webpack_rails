@@ -38,7 +38,7 @@ matrix:
 
 before_install:
   - sudo apt-get update -qq
-  - gem install bundler
+  - gem update bundler
 
 before_script:
   - npm install -g yarn
