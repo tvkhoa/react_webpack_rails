@@ -40,6 +40,7 @@ before_install:
   - sudo apt-get update -qq
 
 before_script:
+  - gem install bundler
   - npm install -g yarn
   - npm install -g webpack
   - bundle exec rake setup:$TEST_SUITE
