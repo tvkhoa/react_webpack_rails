@@ -16,7 +16,7 @@ addons:
       - google-chrome-beta
 
 cache:
-  bundler: true
+  bundler: false
   directories:
   - spec/rails4_dummy_app/node_modules
   - spec/rails5_dummy_app/node_modules
@@ -40,7 +40,6 @@ before_install:
   - sudo apt-get update -qq
 
 before_script:
-  - gem install bundler
   - npm install -g yarn
   - npm install -g webpack
   - bundle exec rake setup:$TEST_SUITE
