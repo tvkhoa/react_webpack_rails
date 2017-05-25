@@ -17,10 +17,6 @@ module ReactWebpackRails
         require_bundles_in_application_js
       end
 
-      def structure
-        create_file 'app/react/components/.keep'
-      end
-
       def gitignore
         append_file '.gitignore' do <<-'TEXT'.strip_heredoc
           /node_modules

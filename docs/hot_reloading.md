@@ -11,8 +11,6 @@ The upgrade requires a few steps which can be applied automatically via our gene
 ```
 bundle exec rails generate react_webpack_rails:install:hot_reload
 ```
-
-
 Detailed steps are outlined below:
 
 1. Bump `react-hot-loader` version in `package.json` file

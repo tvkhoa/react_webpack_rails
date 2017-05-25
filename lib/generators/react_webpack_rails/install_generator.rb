@@ -30,9 +30,7 @@ module ReactWebpackRails
 
     def generate_example
       return unless options.example
-      example_generator = 'react_webpack_rails:install:example'
-      example_generator += ' --server-side' if options.server_side
-      generate example_generator
+      generate 'react_webpack_rails:install:example'
     end
 
     def generate_hot_reload
