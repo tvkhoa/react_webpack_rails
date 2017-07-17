@@ -1,6 +1,15 @@
 # ReactWebpackRails
 [![Travis CI](https://travis-ci.org/netguru/react_webpack_rails.svg?branch=master)](https://travis-ci.org/netguru/react_webpack_rails)
 
+## !! DEPRECATED !!
+Consider using [Webpacker](https://github.com/rails/webpacker) instead.
+
+If you are looking for view helpers and/or redux integrations, see:
+1) [react-rails](https://github.com/reactjs/react-rails) (currently using webpacker)
+2) [react-on-rails](https://github.com/shakacode/react_on_rails) (migration to webpacker in progress, using forked version now)
+
+----
+
 #### Rails - Webpack setup with React integration.
 This gem provides easy and convenient way to build modern JavaScript stack on top of Rails applications using [Webpack](http://webpack.github.io/) and [React](https://facebook.github.io/react/).
 
