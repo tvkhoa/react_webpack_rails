@@ -30,8 +30,8 @@
   "dependencies": {
     "babel-polyfill": "^6.23.0",
     "prop-types": "^15.6.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react": "16.6.0",
+    "react-dom": "16.6.0"
   },
   "devDependencies": {
     "react-hot-loader": "^4.0.0",
