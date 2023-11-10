@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactDOMServer from 'react-dom/server';
-import { AppContainer } from 'react-hot-loader';
 
 class ReactIntegration {
   constructor() {
@@ -34,8 +33,7 @@ class ReactIntegration {
 
   createComponent(name, props) {
     const constructor = this.getComponent(name);
-    const element = React.createElement(constructor, props);
-    return React.createElement(AppContainer, null, element);
+    return React.createElement(constructor, props);
   }
 
   renderComponent(name, props, node) {
