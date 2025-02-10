@@ -1,6 +1,6 @@
 {
   "name": "eh-rwr",
-  "version": "0.9.5",
+  "version": "0.9.4-rc.2",
   "description": "Js part of react_webpack_rails - webpack based React & Rails integration.",
   "main": "js/lib/index.js",
   "files": [
