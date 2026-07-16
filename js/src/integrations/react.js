@@ -1,10 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOMClient from 'react-dom/client';
 import ReactDOMServer from 'react-dom/server';
 
 class ReactIntegration {
   constructor() {
     this.components = {};
+    this.roots = new Map();
     this.registerComponent = this.registerComponent.bind(this);
     this.getComponent = this.getComponent.bind(this);
     this.createComponent = this.createComponent.bind(this);
@@ -37,13 +38,23 @@ class ReactIntegration {
   }
 
   renderComponent(name, props, node) {
-    const component = this.createComponent(name, props);
-    this._attachIntegrationData(node, name, props);
-    ReactDOM.render(component, node);
+    const nativeNode = node.selector ? node[0] : node;
+    ReactIntegration.attachIntegrationData(nativeNode, name, props);
+    let root = this.roots.get(nativeNode);
+    if (!root) {
+      root = ReactDOMClient.createRoot(nativeNode);
+      this.roots.set(nativeNode, root);
+    }
+    root.render(this.createComponent(name, props));
   }
 
   unmountComponent(node) {
-    ReactDOM.unmountComponentAtNode(node);
+    const nativeNode = node.selector ? node[0] : node;
+    const root = this.roots.get(nativeNode);
+    if (root) {
+      root.unmount();
+      this.roots.delete(nativeNode);
+    }
   }
 
   renderComponentToString(name, props) {
@@ -67,14 +78,13 @@ class ReactIntegration {
     };
   }
 
-  _attachIntegrationData(node, name, props) {
-    const nativeNode = node.selector ? node[0] : node; // normalize jquery objects to native nodes
-    const dataset = nativeNode.dataset;
+  static attachIntegrationData(node, name, props) {
+    const { dataset } = node;
     if (dataset.rwrElement) return;
     dataset.rwrElement = 'true';
     dataset.integrationName = 'react-component';
     dataset.payload = JSON.stringify({ name, props });
-  };
+  }
 }
 
-export default new ReactIntegration;
+export default new ReactIntegration();
